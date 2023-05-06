@@ -7,3 +7,44 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.seeWallet{
+  margin-top: 20px;
+}
+
+.currentPrice{
+  margin-top: 10px;
+}
+
+.walletList {
+  width: 50vw;
+  left: 0;
+  list-style: none;
+  column-count: 2;
+  column-gap: 20px;
+}
+
+
+.deleteMenu{
+  list-style: none;
+  background-color: white;
+  position: absolute;
+  border-radius: .25rem;
+  box-shadow: 0 2px 5px 0;
+  transform: translateY(-10px);
+  transition: transform 1000ms ease-in-out;
+
+}
+
+
+
+.deleteMenu li{
+  padding-top: 5px;
+  
+}
+
+.deleteMenu li:hover{
+  background-color: rgba(0,0,0,.1);
+}
+
+

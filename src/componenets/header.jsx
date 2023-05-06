@@ -7,7 +7,7 @@ const Homepage = (props) => {
         <h1 className="title">CryptidCrypto</h1>
         <h1
           className="home"
-          onClick={() => props.setCurrentPage(!props.currentPage)}
+          onClick={() => props.setCurrentPage(true)}
         >
           Home
         </h1>
