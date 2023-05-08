@@ -5,6 +5,9 @@ import CoinPage from "./componenets/CoinPage";
 import Charts from "./componenets/Charts";
 import "./App.css";
 
+
+//TODO 
+
 const App = () => {
   const [currentPage, setCurrentPage] = useState(true);
   const [coinData, setCoinData] = useState(null);

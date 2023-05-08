@@ -3,16 +3,16 @@
   background-image: -moz-linear-gradient(#ccccff, #edace0);
 }
 
-.coinButton{
+.coinButton {
   margin-left: 10px;
   margin-right: 10px;
 }
 
-.seeWallet{
+.seeWallet {
   margin-top: 20px;
 }
 
-.currentPrice{
+.currentPrice {
   margin-top: 10px;
 }
 
@@ -24,27 +24,38 @@
   column-gap: 20px;
 }
 
+.deleteMenu {
+  position: relative;
+}
 
-.deleteMenu{
-  list-style: none;
+.deleteMenuButton {
   background-color: white;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.deleteList {
   position: absolute;
-  border-radius: .25rem;
-  box-shadow: 0 2px 5px 0;
-  transform: translateY(-10px);
-  transition: transform 1000ms ease-in-out;
-
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-
-
-.deleteMenu li{
-  padding-top: 5px;
-  
+.deleteList li {
+  padding: 10px;
+  cursor: pointer;
 }
 
-.deleteMenu li:hover{
-  background-color: rgba(0,0,0,.1);
+.deleteList li:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: black;
 }
-
-

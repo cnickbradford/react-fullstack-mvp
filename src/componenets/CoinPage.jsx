@@ -58,7 +58,7 @@ const CoinPage = (props) => {
         wallets={props.wallets}
         setWallets={props.setWallets} />
       )}
-      {props.wallets && <Wallet/>}
+      {props.wallets && <Wallet wallets={props.wallets} setWallets={props.setWallets}/>}
     </>
   );
 };
