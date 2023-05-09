@@ -5,7 +5,7 @@ import NewCoin from "./NewCoin";
 
 
 const Wallet = (props) => {
-  const [WalletData, setWalletData] = useState([]);
+  const [walletData, setWalletData] = useState([]);
   const [newWalletForm, setNewWalletForm] = useState(false);
   const [deleteMenu, setDeleteMenu] = useState(false);
 
@@ -17,24 +17,20 @@ const Wallet = (props) => {
           setWalletData(data);
         })
         .catch((error) => {
-          console.error("Error fetching wallet data");
+          console.error("Error fetching wallet data", error);
         })
     );
-  }, [WalletData]);
+  }, [walletData]);
 
   const toggleDeleteMenu = () => {
     setDeleteMenu(!deleteMenu);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(submitted)
-  }
 
   const handleDelete = async (e) => {
     let id = e.target.id;
     await fetch(`http://localhost:4000/api/wallet/${id}`, { method: "DELETE" });
-    const updatedWallet = WalletData.filter((wallet) => wallet.id !== id);
+    const updatedWallet = walletData.filter((wallet) => wallet.id !== id);
     setWalletData(updatedWallet);
     setDeleteMenu(false);
   };
@@ -43,17 +39,18 @@ const Wallet = (props) => {
     <>
       <h2>Wallets:</h2>
       <ul className="walletList">
-        {WalletData.map((Wallet) => (
+        {walletData.map((Wallet) => (
           <React.Fragment key={`wallet-${Wallet.id}`}>
             <li>Name: {Wallet.name}</li>
             <li>Coin: {Wallet.coin}</li>
             <li>Quantity: {Wallet.amount}</li>
+            <li>Price: ${Wallet.value}</li>
           </React.Fragment>
         ))}
       </ul>
       <button className="addNewCoin" onClick={() => setNewWalletForm(!newWalletForm)}>Add a New Coin</button>
       {newWalletForm && (
-        <NewCoin/>
+        <NewCoin walletData={walletData} setWalletData={setWalletData} />
       )}
       <div className="deleteMenu">
         <button className="deleteMenuButton" onClick={toggleDeleteMenu}>
@@ -61,7 +58,7 @@ const Wallet = (props) => {
         </button>
         {deleteMenu && (
           <ul className="deleteList">
-            {WalletData.map((Wallet) => (
+            {walletData.map((Wallet) => (
               <li
                 onClick={handleDelete}
                 id={Wallet.id}

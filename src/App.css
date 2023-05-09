@@ -3,6 +3,13 @@
   background-image: -moz-linear-gradient(#ccccff, #edace0);
 }
 
+.homePage-container{
+  display: flex;
+  height: 200px;
+  align-items: start;
+}
+
+
 .coinButton {
   margin-left: 10px;
   margin-right: 10px;
@@ -20,8 +27,12 @@
   width: 50vw;
   left: 0;
   list-style: none;
-  column-count: 2;
+  column-count: 1;
   column-gap: 20px;
+}
+
+.walletList li{
+  margin-bottom: 10px;
 }
 
 .deleteMenu {
@@ -35,6 +46,11 @@
   border-radius: 4px;
   cursor: pointer;
   padding: 10px 20px;
+}
+
+.deleteMenuButton:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: black;
 }
 
 .deleteList {
@@ -53,6 +69,8 @@
 .deleteList li {
   padding: 10px;
   cursor: pointer;
+  flex-direction: column;
+  column-count: 1;
 }
 
 .deleteList li:hover {

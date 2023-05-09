@@ -1,2 +1,2 @@
-INSERT INTO wallet (name, coin, amount, value, dateOfPurchase) VALUES ('wallet1', 'bitcoin', 10, 1000, 20220101);
-INSERT INTO wallet (name, coin, amount, value, dateOfPurchase) VALUES ('wallet2', 'dogecoin', 1000, 10, 20220101);
+INSERT INTO wallet (name, coin, amount, value, dateOfPurchase) VALUES ('Bitcoin', 'bitcoin', 10, 1000, 20220101);
+INSERT INTO wallet (name, coin, amount, value, dateOfPurchase) VALUES ('Doge', 'dogecoin', 1000, 10, 20220101);

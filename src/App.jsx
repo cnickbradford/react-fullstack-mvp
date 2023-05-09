@@ -5,9 +5,6 @@ import CoinPage from "./componenets/CoinPage";
 import Charts from "./componenets/Charts";
 import "./App.css";
 
-
-//TODO 
-
 const App = () => {
   const [currentPage, setCurrentPage] = useState(true);
   const [coinData, setCoinData] = useState(null);
@@ -16,15 +13,18 @@ const App = () => {
 
   return (
     <>
-      <Homepage
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        coinData={coinData}
-        setCoinData={setCoinData}
-      />
+      <div className="homePage-container">
+        <Homepage className="homepage"
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          coinData={coinData}
+          setCoinData={setCoinData}
+        ></Homepage>
+      </div>
       {currentPage && (
         <Welcome currentPage={currentPage} setCurrentPage={setCurrentPage} />
       )}
+
       {!currentPage && (
         <CoinPage
           coinData={coinData}

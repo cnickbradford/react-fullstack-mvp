@@ -5,14 +5,15 @@ GET http://localhost:4000/
 GET http://localhost:4000/api/wallet
 
 ### route to see specific wallet 
-GET http://localhost:4000/api/wallet/2
+GET http://localhost:4000/api/wallet/4
+
 
 ### route creating a new wallet
 POST http://localhost:4000/api/wallet
 content-type: application/json
 
 {
-    "name": "Take out trash",
+    "name": "ETH",
     "coin": "ethereum",
     "amount": 50,
     "value": 2500,
