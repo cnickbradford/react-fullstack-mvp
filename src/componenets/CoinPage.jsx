@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Charts from "./Charts";
 import Wallet from "./Wallet";
+import "../App.css";
 
 const URL = "https://api.coincap.io/v2/assets/";
 //https://api.coincap.io/v2/assets/bitcoin/history?interval=d1
@@ -37,28 +38,32 @@ const CoinPage = (props) => {
 
   return (
     <>
-      <button className="coinButton" id="bitcoin" onClick={getData}>
+      <button className="deleteMenuButton" id="bitcoin" onClick={getData}>
         BTC
       </button>
-      <button className="coinButton" id="ethereum" onClick={getData}>
+      <button className="deleteMenuButton" id="ethereum" onClick={getData}>
         ETH
       </button>
-      <button className="coinButton" id="dogecoin" onClick={getData}>
+      <button className="deleteMenuButton" id="dogecoin" onClick={getData}>
         DOGE
       </button>
-      <button className="coinButton" id="litecoin" onClick={getData}>
+      <button className="deleteMenuButton" id="litecoin" onClick={getData}>
         LTC
       </button>
-      <button className="coinButton" id="eos" onClick={getData}>
+      <button className="deleteMenuButton" id="eos" onClick={getData}>
         EOS
       </button>
       {props.coinData && !props.wallets && (
-        <Charts data={props.coinData} 
-        value={props.currentCoin}
-        wallets={props.wallets}
-        setWallets={props.setWallets} />
+        <Charts
+          data={props.coinData}
+          value={props.currentCoin}
+          wallets={props.wallets}
+          setWallets={props.setWallets}
+        />
       )}
-      {props.wallets && <Wallet wallets={props.wallets} setWallets={props.setWallets}/>}
+      {props.wallets && (
+        <Wallet wallets={props.wallets} setWallets={props.setWallets} />
+      )}
     </>
   );
 };

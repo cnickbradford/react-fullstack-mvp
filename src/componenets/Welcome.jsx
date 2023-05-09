@@ -1,6 +1,9 @@
 import React from 'react'
+import "../App.css";
 
 const Welcome = (props) => {
+
+
   return (
     <div>
         <h3 className="paragraph-header">Stay ahead of the trends</h3>
@@ -9,7 +12,7 @@ const Welcome = (props) => {
           exchange rates in real time , and keep track of the coins you want to
           buy in our simulated wallet.
         </p>
-        <button className='startButton' onClick={() => props.setCurrentPage(!props.currentPage)}>
+        <button className='deleteMenuButton' onClick={() => props.setCurrentPage(!props.currentPage)}>
             Get started
           </button>
     </div>

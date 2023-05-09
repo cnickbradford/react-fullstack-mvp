@@ -19,6 +19,8 @@ const App = () => {
           setCurrentPage={setCurrentPage}
           coinData={coinData}
           setCoinData={setCoinData}
+          wallets={wallets}
+          setWallets={setWallets}
         ></Homepage>
       </div>
       {currentPage && (

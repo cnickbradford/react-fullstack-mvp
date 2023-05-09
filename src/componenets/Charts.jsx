@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend } from 'chart.js';
+import "../App.css";
 
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend);
@@ -38,7 +39,12 @@ const Charts = (props) => {
     <div>
       <Line data={data} options={options} height={80} />
       <div className="currentPrice">Current price: ${props.value} </div>
-      <button className="seeWallet" onClick={() => props.setWallets(!props.wallets)}>See your Coins</button>
+      <button
+        className="deleteMenuButton"
+        onClick={() => props.setWallets(!props.wallets)}
+      >
+        See your Coins
+      </button>
     </div>
   );
 };

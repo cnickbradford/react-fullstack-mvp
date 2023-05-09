@@ -20,18 +20,17 @@ const Wallet = (props) => {
           console.error("Error fetching wallet data", error);
         })
     );
-  }, [walletData]);
+  }, []);
 
   const toggleDeleteMenu = () => {
     setDeleteMenu(!deleteMenu);
   };
 
 
-  const handleDelete = async (e) => {
-    let id = e.target.id;
-    await fetch(`http://localhost:4000/api/wallet/${id}`, { method: "DELETE" });
-    const updatedWallet = walletData.filter((wallet) => wallet.id !== id);
-    setWalletData(updatedWallet);
+  const handleDelete = (id) => {
+    // let id = e.target.id;
+    fetch(`http://localhost:4000/api/wallet/${id}`, { method: "DELETE" });
+    setWalletData(walletData.filter((wallet) => wallet.id !== id));
     setDeleteMenu(false);
   };
 
@@ -40,15 +39,19 @@ const Wallet = (props) => {
       <h2>Wallets:</h2>
       <ul className="walletList">
         {walletData.map((Wallet) => (
-          <React.Fragment key={`wallet-${Wallet.id}`}>
-            <li>Name: {Wallet.name}</li>
+          <React.Fragment key={`wallet-${Wallet.id} `}>
             <li>Coin: {Wallet.coin}</li>
             <li>Quantity: {Wallet.amount}</li>
             <li>Price: ${Wallet.value}</li>
           </React.Fragment>
         ))}
       </ul>
-      <button className="addNewCoin" onClick={() => setNewWalletForm(!newWalletForm)}>Add a New Coin</button>
+      <button
+        className="deleteMenuButton"
+        onClick={() => setNewWalletForm(!newWalletForm)}
+      >
+        Add a New Coin
+      </button>
       {newWalletForm && (
         <NewCoin walletData={walletData} setWalletData={setWalletData} />
       )}
@@ -60,7 +63,7 @@ const Wallet = (props) => {
           <ul className="deleteList">
             {walletData.map((Wallet) => (
               <li
-                onClick={handleDelete}
+                onClick={() => handleDelete(Wallet.id)}
                 id={Wallet.id}
                 key={`delete-${Wallet.id}`}
               >
